@@ -1,0 +1,43 @@
+# uLCD-28PTU 
+# Resolution: 240 x 320 pixels
+
+
+#!/usr/bin/env python
+import time
+import serial
+import binascii
+
+CLEAR_SCREEN="FFCD"
+PUT_PIXEL="FFC1"
+PIXEL_X_MSB = "00"
+PIXEL_X_LSB = "28"
+PIXEL_Y_MSB = "00"
+PIXEL_Y_LSB = "64"
+PIXEL_CLR_MSB = "FF"
+PIXEL_CLR_LSB = "E0"
+
+def WritePixel(ser,pixelCmdData):
+	ser.write(pixelCmdData.decode('hex'))
+	return;
+
+ser = serial.Serial(
+	port='/dev/ttyAMA0',
+        baudrate = 9600,
+        parity=serial.PARITY_NONE,
+        stopbits=serial.STOPBITS_ONE,
+        bytesize=serial.EIGHTBITS,
+        timeout=1
+	)
+ser.write(CLEAR_SCREEN.decode('hex'))
+pixelVal =["00","00","00","00","00","00"]
+for i in range(0, 239):
+	for j in range(0, 239)
+		WritePixel(ser, PUT_PIXEL)
+		ser.write("00".decode('hex'))
+		ser.write(hex(i)[2:].decode('hex'))
+		ser.write("00".decode('hex'))
+		ser.write(hex(j)[2:].decode('hex'))
+		ser.write(PIXEL_CLR_MSB.decode('hex'))
+		ser.write(PIXEL_CLR_LSB.decode('hex'))	
+time.sleep(1)
+
