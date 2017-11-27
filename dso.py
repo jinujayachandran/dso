@@ -25,6 +25,7 @@ PIXEL_COLOR_MSB	= "FF"
 PIXEL_COLOR_LSB	= "E0"
 
 PHASE_RESOLUTION = 5
+NO_OF_WAVES = 2
 
 # INITIALIZATION
 # Frequency, Sampling rate and Number of samples of sine wave
@@ -41,6 +42,11 @@ yLsb = [0]*SAMPLE
 wave = [0]*SAMPLE
 hexWave=[0]*SAMPLE
 hexWaveVal=[0]*SAMPLE
+
+wave2=[[0 for i in range(SAMPLE)]for j in range(NO_OF_WAVES)]
+hexWave2=[[0 for i in range(SAMPLE)]for j in range(NO_OF_WAVES)]
+hexWaveVal2=[[0 for i in range(SAMPLE)]for j in range(NO_OF_WAVES)]
+
 
 phase = 0
 ########################################################################################################
@@ -82,16 +88,53 @@ def CreateSamplePoints(samplePoints, yMsb, yLsb):
 #           and shifted by 180 so the lower most point is -60+180=120 and the upper most point is 
 #           60+180=240. For the lower wave the scaling is 60 and shifting is 60 so that the minimum 
 #           value is 0 and maximum value is 120.
+#			 For plotting two waves at the same time (the else condition) the variable will have a 
+#			2D array structure with two rows and the number of sample points as the number of columns. 
 ########################################################################################################
 def GenerateSineWaveValues(wave, hexWave, phase, sides):
 	if sides == 'upper' :
 		for n in range(SAMPLE):
 			wave[n]=int(round(((60*sin((2*pi*F*n/FS)+phase))+180)))
 			hexWave[n]=hex(wave[n])[2:]
-	else:
+	elif sides == 'lower':
 		for n in range(SAMPLE):
 			wave[n]=int(round(((60*sin((2*pi*F*n/FS)+phase))+60)))
 			hexWave[n]=hex(wave[n])[2:]
+	else:
+		for n in range(SAMPLE):
+			wave2[0][n] = int(round(((60*sin((2*pi*F*n/FS)+phase))+180)))
+			wave2[1][n] = int(round(((60*sin((2*pi*F*n/FS)+phase))+60)))
+			hexWave2[0][n]=hex(wave2[0][n])[2:]
+			hexWave2[1][n]=hex(wave2[1][n])[2:]
+
+	return;
+
+########################################################################################################
+#Plot two waves at the same time on the display
+#Algorithm: The variables will have a 2D array structure with two rows and the number of sample
+#			points as the number of columns. The columns are first filled with generated sine wave 
+#			value and are plotted first. The Y-axis values are same for the column and only the X-axis
+#			value changes.
+########################################################################################################
+def PlotTwoWavesSimultaneously(wave2, hexWave2, yMsb, yLsb):
+
+	for j in range(0, SAMPLE):
+		for i in range(0,NO_OF_WAVES):
+			if wave2[i][j] < 16:
+				hexWaveVal2[i][j]=("0"+hexWave2[i][j]).decode('hex')
+			else:
+				hexWaveVal2[i][j]=hexWave2[i][j].decode('hex')
+
+			ser.write(PUT_PIXEL_CMD.decode('hex'))
+			ser.write("00".decode('hex'))
+			ser.write(hexWaveVal2[i][j])
+			ser.write(yMsb[j])
+			ser.write(yLsb[j])
+			ser.write(PIXEL_COLOR_MSB.decode('hex'))
+			ser.write(PIXEL_COLOR_LSB.decode('hex'))		
+
+			if 0 < j < SAMPLE:
+				ConnectPointsByLineFor2Waves(hexWaveVal2, yMsb, yLsb, i, j-1)	
 	return;
 
 ########################################################################################################
@@ -157,6 +200,24 @@ def ConnectPointsByLine(hexWaveVal, yMsb, yLsb, idx):
 	ser.write(PIXEL_COLOR_LSB.decode('hex'))	
 	return;
 
+########################################################################################################
+#Connect all the points by line one by one for both the waves simultaneously.
+#Algorithm: Once the pixels are marked, a straight line is drawn from the old pixel to the new one.
+########################################################################################################
+def ConnectPointsByLineFor2Waves(hexWaveVal2, yMsb, yLsb, idx1, idx2):
+	ser.write(DRAW_LINE_CMD.decode('hex'))
+	ser.write("00".decode('hex'))
+	ser.write(hexWaveVal2[idx1][idx2])
+	ser.write(yMsb[idx2])
+	ser.write(yLsb[idx2])
+	ser.write("00".decode('hex'))
+	ser.write(hexWaveVal2[idx1][idx2+1])
+	ser.write(yMsb[idx2+1])
+	ser.write(yLsb[idx2+1])	
+	ser.write(PIXEL_COLOR_MSB.decode('hex'))
+	ser.write(PIXEL_COLOR_LSB.decode('hex'))	
+	return;
+
 
 ########################################################################################################
 #INIITIALIZE GPIO PIN
@@ -200,10 +261,13 @@ while 1:
 		phase = 0
 	else:
 		phase = phase + (pi/PHASE_RESOLUTION)
-	GenerateSineWaveValues(wave, hexWave, phase, 'lower')
-	PlotPoints(wave, hexWaveVal, yMsb, yLsb)
-	GenerateSineWaveValues(wave, hexWave, phase, 'upper')
-	PlotPoints(wave, hexWaveVal, yMsb, yLsb)
+#	GenerateSineWaveValues(wave, hexWave, phase, 'lower')
+#	PlotPoints(wave, hexWaveVal, yMsb, yLsb)
+#	GenerateSineWaveValues(wave, hexWave, phase, 'upper')
+#	PlotPoints(wave, hexWaveVal, yMsb, yLsb)
+
+	GenerateSineWaveValues(wave, hexWave, phase, 'both')
+	PlotTwoWavesSimultaneously(wave2, hexWave2, yMsb, yLsb)
 
     # Clearing the screen is important to plot the next set of points
 	ser.write(CLR_SCREEN_CMD.decode('hex'))
