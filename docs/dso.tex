@@ -9,8 +9,9 @@
 \usepackage{amssymb}
 \usepackage{graphicx}  
 \usepackage{subcaption}
+\usepackage{hyperref}
 \usepackage{url}
-
+\usepackage{float}
 
 \title{Biomedical Signal Display}
 \author{Jinu Jayachandran}
@@ -32,8 +33,18 @@
     An ADC will perform the function of a sampler. Depending on the range of signals to be displayed an appropriate ADC can be chosen. By 'appropriate' it means that a decision should be made on what should be the sampling time (or speed), resolution, voltage range, interface type etc of the ADC. Currently in the first phase of the project ADC is not used. Instead the waveform to be displayed is generated in the processing unit and sent to the display.
 
 \subsection{Processing Unit}
-    The three main tasks of the processing unit are - Receive data, Process data and Send data to display. The data that is being received from the ADC can be through an interface. The interface can be a serial interface like UART, SPI, I2C etc or a parallel one. To process data received there should be a unit which can analyze the data and modify it so that it can be displayed suitably. Thus a microcontroller is one of the choices of the processing unit. In this project we are using \textit{Raspberry Pi Rev2.0} \cite{bib_raspberrypi} is used as the processing unit.
+    The three main tasks of the processing unit are - Receive data, Process data and Send data to display. The data that is being received from the ADC can be through an interface. The interface can be a serial interface like UART, SPI, I2C etc or a parallel one. To process data received there should be a unit which can analyze the data and modify it so that it can be displayed suitably. Thus a microcontroller is one of the choices of the processing unit. In this project we are using \hyperref[\textit{Raspberry Pi Rev2.0}]{\url{https://www.raspberrypi.org/}} \cite{bib_raspberrypi}  is used as the processing unit. Fig(\ref{fig_rpi}) shows the Raspberry Pi Rev 2.0 Model B which is used in the current project.
  
+\begin{figure}[ht]
+    \centering
+    %\scalebox{0.5}{\input{./fig/rpi.pstex_t}}
+    \includegraphics[scale=0.75]{./fig/rpi.ps}
+    \caption{Raspberry Pi}
+    \label{fig_rpi}
+\end{figure}
+
+The Raspberry Pi can be considered as a minicomputer with lot of interfaces. Even a monitor and keyboard can be attached to pi and can be used as a normal computer. But the resources to the pi are limited. The only memory it can have is via an SD Card. The pi can only work with a custom OS. The most commonly used OS is raspbian \cite{bib_raspbian}
+
 \bibliographystyle{plain}
 \bibliography{dso}
  
