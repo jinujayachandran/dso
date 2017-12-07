@@ -1,8 +1,18 @@
 \begin{thebibliography}{1}
 
 \bibitem{bib_raspberrypi}
-Raspberry~Pi Foundation.
-\newblock Raspberry pi - main page.
+Raspberry Pi~Main Page.
+\newblock Raspberry pi foundation.
 \newblock \url{https://www.raspberrypi.org/}.
+
+\bibitem{bib_raspbian}
+RASPBIAN.
+\newblock Raspberry pi foundation.
+\newblock \url{https://www.raspberrypi.org/downloads/raspbian/}.
+
+\bibitem{bib_ulcd}
+uLcd 32PTU.
+\newblock 4d systems.
+\newblock \url{http://www.4dsystems.com.au/product/uLCD_32PTU/}.
 
 \end{thebibliography}
