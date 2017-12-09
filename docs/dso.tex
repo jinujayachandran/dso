@@ -12,6 +12,7 @@
 \usepackage{url}
 \usepackage{float}
 \usepackage[dvipdfm]{hyperref}
+\graphicspath{{./fig/}}
 
 \title{Biomedical Signal Display}
 \author{Jinu Jayachandran}
@@ -38,14 +39,31 @@
 \begin{figure}[ht]
     \centering
     %\scalebox{0.5}{\input{./fig/rpi.pstex_t}}
-    \includegraphics[scale=0.75]{./fig/rpi.ps}
+    \includegraphics[scale=0.75]{rpi.ps}
     \caption{Raspberry Pi}
     \label{fig_rpi}
 \end{figure}
 
 The Raspberry Pi can be considered as a minicomputer with lot of interfaces. Even a monitor and keyboard can be attached to pi and can be used as a normal computer. But the resources to the pi are limited. The only memory it can have is via an SD Card. The pi can only work with a custom OS. The most commonly used OS is raspbian \cite{bib_raspbian}
 
-The display that is used is \href{http://www.4dsystems.com.au/product/uLCD_32PTU/}{uLCD-32PTU} from 4D systems \cite{bib_ulcd}
+The display that is used is \href{http://www.4dsystems.com.au/product/uLCD_28PTU/}{uLCD-28PTU} from 4D systems \cite{bib_ulcd} (shown in fig(\ref{fig_ulcd}))  The display is controlled by PICASO processor which can be configured. The product also comes with a software from 4D systems. Although the display can be configured by different means the current project is concentrated on controlling the display via serial commands. The detailed documentation of the product along with the list of serial commands available are listed in the documentation for \href{http://www.4dsystems.com.au/productpages/PICASO/downloads/PICASO_serialcmdmanual_R_2_0.pdf}{PICASO Serial Environment Command Set} \cite{bib_serulcd}. To play with the display unit you can make use of the 4D systems software(running in desktop/laptop) connected to the display directly without using raspberry pi. The display can be connected to a system either via a USB to serial convertor. Some sample examples are given at the begining of the document in \cite{bib_serulcd}. The pins of the $H2$ group (as shown in fig(\ref{fig_ulcd}))in the display shall be connected to the USB to Serial convertor.
+
+\begin{figure}[ht]
+    \centering
+    %\scalebox{0.5}{\input{./fig/rpi.pstex_t}}
+    \includegraphics[scale=0.7]{ulcd-28ptu.eps}
+    \caption{Display:ULCD-28PTU}
+    \label{fig_ulcd}
+\end{figure}
+
+The connection diagram between the display and the USB to Serial convertor is as shown in the fig (\ref{fig_convLcdCon})
+
+\begin{figure}
+	\centering
+	\scalebox{0.7}{\input{./fig/convLcdConn.pstex_t}}
+	\caption{Connection diagram for USB to Serial Convertor and Display}
+	\label{fig_convLcdCon}
+\end{figure}
 
 \bibliographystyle{plain}
 \bibliography{dso}

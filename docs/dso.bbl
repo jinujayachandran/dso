@@ -11,8 +11,14 @@ RASPBIAN.
 \newblock \url{https://www.raspberrypi.org/downloads/raspbian/}.
 
 \bibitem{bib_ulcd}
-uLcd 32PTU.
+uLcd 28PTU.
 \newblock 4d systems.
-\newblock \url{http://www.4dsystems.com.au/product/uLCD_32PTU/}.
+\newblock \url{http://www.4dsystems.com.au/product/uLCD_28PTU/}.
+
+\bibitem{bib_serulcd}
+PICASSO uLcd 28PTU.
+\newblock ulcd-28ptu - serial command documentation.
+\newblock
+  \url{http://www.4dsystems.com.au/productpages/PICASO/downloads/PICASO_serialcmdmanual_R_2_0.pdf}.
 
 \end{thebibliography}
