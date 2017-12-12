@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2017.11.2)  12 DEC 2017 12:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2017.11.2)  12 DEC 2017 13:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -723,15 +723,15 @@ com . au / productpages / PICASO /
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 153.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 157.
  [11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 153.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 157.
  (./dso.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 153.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 153.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 157.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 157.
 Package rerunfilecheck Info: File `dso.out' has not changed.
 (rerunfilecheck)             Checksum: 461F1A65AA1912A8C0496C1DF30AF0CA;852.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 153.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 157.
  ) 
 Here is how much of TeX's memory you used:
  7534 strings out of 494903
@@ -740,6 +740,6 @@ Here is how much of TeX's memory you used:
  10736 multiletter control sequences out of 15000+600000
  12919 words of font info for 50 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 42i,6n,40p,1323b,420s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,6n,40p,1323b,418s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on dso.dvi (11 pages, 33576 bytes).
+Output written on dso.dvi (11 pages, 33708 bytes).
