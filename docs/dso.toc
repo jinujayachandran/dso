@@ -1,0 +1,14 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {section}{\numberline {2}The System}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Analog to Digital Converter (ADC)}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Processing Unit}{3}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Display}{3}{subsection.2.3}
+\contentsline {section}{\numberline {3}Interfacing Raspberry Pi}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Installing Raspbian}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Connection Raspbian Pi via SSH}{5}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Static IP address allocation}{5}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Dynamic IP allocation}{6}{subsubsection.3.2.2}
+\contentsline {section}{\numberline {4}Interfacing Raspberry Pi with ULCD-28PTU}{6}{section.4}
+\contentsline {subsection}{\numberline {4.1}The Code}{7}{subsection.4.1}
+\contentsline {section}{\numberline {5}What's Next?}{7}{section.5}
