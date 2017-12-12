@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2017.11.2)  12 DEC 2017 12:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=latex 2017.11.2)  12 DEC 2017 12:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -667,22 +667,28 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout4 = `dso.toc'.
 
 
-(./dso.lof)
+[2] (./dso.lof)
 \tf@lof=\write5
 \openout5 = `dso.lof'.
 
- [2]
+ [3] [4]
 File: ./fig/rpi.ps Graphic file (type eps)
- <./fig/rpi.ps> [3]
+ <./fig/rpi.ps> [5]
 File: ./fig/ulcd-28ptu.eps Graphic file (type eps)
  <./fig/ulcd-28ptu.eps>
-Overfull \hbox (40.70723pt too wide) in paragraph at lines 58--59
+Overfull \hbox (40.70723pt too wide) in paragraph at lines 60--61
  [][] 
  []
 
 (./fig/convLcdConn.pstex_t
 File: ./fig/convLcdConn.pstex Graphic file (type eps)
- <./fig/convLcdConn.pstex>) [4] [5]
+ <./fig/convLcdConn.pstex>) [6] [7]
+Overfull \hbox (14.52188pt too wide) in paragraph at lines 114--115
+\OT1/cmr/m/n/12 eth-er-net ca-ble. Here it is as-sumed that the file \OT1/cmtt/
+m/n/12 /etc/network/interfaces
+ []
+
+[8]
 Overfull \hbox (28.0582pt too wide) in paragraph at lines 120--121
 []\OT1/cmr/bx/n/12 The cur-rent con-fig-u-ra-tion of Pi with static ip ad-dress
  of 192.168.137.2 
@@ -694,7 +700,7 @@ Overfull \hbox (16.72789pt too wide) in paragraph at lines 124--124
  []
 
 File: ./fig/rpisch.eps Graphic file (type eps)
-<./fig/rpisch.eps> [6] (./dso.bbl [7]
+<./fig/rpisch.eps> [9] [10] (./dso.bbl
 Underfull \hbox (badness 1028) in paragraph at lines 24--28
 []\OT1/cmr/m/n/12 Schematic.  Rasp-berry pi schematic.  []$\OT1/cmtt/m/n/12 htt
 ps : / / www . raspberrypi .
@@ -718,7 +724,7 @@ com . au / productpages / PICASO /
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 153.
- [8] [9] [10] [11]
+ [11]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 153.
  (./dso.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 153.
@@ -730,10 +736,10 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 153.
 Here is how much of TeX's memory you used:
  7534 strings out of 494903
  109522 string characters out of 6179917
- 197235 words of memory out of 5000000
+ 196235 words of memory out of 5000000
  10736 multiletter control sequences out of 15000+600000
  12919 words of font info for 50 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 42i,6n,40p,1194b,448s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,6n,40p,1323b,420s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on dso.dvi (11 pages, 33308 bytes).
+Output written on dso.dvi (11 pages, 33576 bytes).
